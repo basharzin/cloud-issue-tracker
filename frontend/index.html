@@ -1,45 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cloud Issue Tracker</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Step 4: Application script loaded with defer -->
+    <script src="js/app.js?v=2" defer></script>
+  </head>
+  <body>
     <header class="app-header">
-        <h1>Cloud Issue Tracker</h1>
-        <p>Report and track simple technical issues.</p>
+      <h1>Cloud Issue Tracker</h1>
+      <p>Report and track simple technical issues.</p>
     </header>
-    <div class="container">
-        <div class="panel">
-            <h2>Create Issue</h2>
-            <form>
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" required>
+    <main class="container">
+      <section class="panel">
+        <h2>Create Issue</h2>
+        <form id="issue-form">
+          <!-- Step 1: Added 'required' to the three form controls -->
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" required />
 
-                <label for="description">Description</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required></textarea>
 
-                <label for="priority">Priority</label>
-                <select id="priority" name="priority">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority" required>
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
 
-                <button type="submit">Submit Issue</button>
-            </form>
-        </div>
-        <div class="panel">
-            <h2>Current Issues</h2>
-            <div class="issue-card">
-                <h3>Unable to access Wi-Fi</h3>
-                <p>Connection fails in the teaching lab.</p>
-                <p><strong>Priority:</strong> High</p>
-                <p><strong>Status:</strong> Open</p>
-            </div>
-        </div>
-    </div>
-</body>
+          <button type="submit">Submit Issue</button>
+
+          <!-- Step 2: Message area under the form -->
+          <p id="form-message"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Current Issues</h2>
+        <!-- Step 3: Replaced the static issue card with the Total Issues text and empty list container -->
+        <p>Total issues: <span id="issue-count">0</span></p>
+        <div id="issues-list"></div>
+      </section>
+    </main>
+  </body>
 </html>
